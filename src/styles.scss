@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-app-root > *:not(app-particle-bg) {
+app-root > *:not(app-particle-bg):not(app-navbar) {
   position: relative;
   z-index: 1;
 }

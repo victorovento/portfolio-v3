@@ -21,6 +21,9 @@ import { FadeInDirective } from '../directives/fade-in.directive';
                     <p class="role">{{ exp.role }}</p>
                   </div>
                   <div class="right">
+                    @if (exp.endDate === 'Present') {
+                      <span class="badge">Current</span>
+                    }
                     <span class="location">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
                       {{ exp.city }}
@@ -29,10 +32,6 @@ import { FadeInDirective } from '../directives/fade-in.directive';
                   </div>
                 </div>
                 <p class="description">{{ exp.description }}</p>
-
-                @if (exp.endDate === 'Present') {
-                  <span class="badge">Current</span>
-                }
               </div>
             </div>
           }
@@ -167,9 +166,6 @@ import { FadeInDirective } from '../directives/fade-in.directive';
     }
 
     .badge {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
       background: rgba(229, 57, 53, 0.1);
       color: #e53935;
       font-size: 0.7rem;

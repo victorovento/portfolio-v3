@@ -37,15 +37,16 @@ import { Component, HostListener, signal } from '@angular/core';
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1000;
       padding: 1.375rem 0;
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       transition: background 0.35s, box-shadow 0.35s;
     }
 
     nav.scrolled {
       background: rgba(10, 10, 10, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 

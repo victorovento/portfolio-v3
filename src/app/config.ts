@@ -3,7 +3,7 @@ export const personal = {
   name: 'Victor Vento',
   role: 'Software Developer',
   tagline: 'Building clean and efficient digital experiences.',
-  email: 'victorovento@icloud.com',
+  email: 'contact@victorvento.net',
   location: 'Melbourne, FL',
   availability: 'Full-time / Freelance',
   bio: [

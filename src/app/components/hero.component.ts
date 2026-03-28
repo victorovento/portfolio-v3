@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { personal } from '../config';
 import { FadeInDirective } from '../directives/fade-in.directive';
 
@@ -11,8 +11,8 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       <div class="glow"></div>
       <div class="container">
         <p class="greeting" [appFadeIn]="0">Hi there, I'm</p>
-        <h1 [appFadeIn]="100">{{ name }}</h1>
-        <p class="role" [appFadeIn]="200">{{ role }}</p>
+        <h1>{{ displayName }}<span class="cursor" [class.active]="cursorOn === 'name'">|</span></h1>
+        <p class="role">{{ displayRole }}<span class="cursor" [class.active]="cursorOn === 'role'">|</span></p>
         <p class="tagline" [appFadeIn]="300">{{ tagline }}</p>
 
         <div class="socials" [appFadeIn]="400">
@@ -215,20 +215,81 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       100% { opacity: 0; transform: translateY(9px); }
     }
 
+    .cursor {
+      display: inline-block;
+      color: #e53935;
+      font-weight: 300;
+      opacity: 0;
+      margin-left: 2px;
+    }
+
+    .cursor.active {
+      animation: blink 0.75s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
     @media (max-width: 700px) {
       h1 { letter-spacing: -2px; }
       .role { letter-spacing: -0.5px; }
     }
   `],
 })
-export class HeroComponent {
-  name     = personal.name;
-  role     = personal.role;
-  tagline  = personal.tagline;
-  github   = personal.github;
-  linkedin = personal.linkedin;
+export class HeroComponent implements OnInit, OnDestroy {
+  name      = personal.name;
+  role      = personal.role;
+  tagline   = personal.tagline;
+  github    = personal.github;
+  linkedin  = personal.linkedin;
   instagram = personal.instagram;
-  cvPath   = personal.cvPath;
+  cvPath    = personal.cvPath;
+
+  displayName = '';
+  displayRole = '';
+  cursorOn: 'name' | 'role' | 'none' = 'none';
+
+  private timers: ReturnType<typeof setTimeout>[] = [];
+
+  ngOnInit() {
+    if (sessionStorage.getItem('hero-typed')) {
+      this.displayName = this.name;
+      this.displayRole = this.role;
+      return;
+    }
+
+    this.cursorOn = 'name';
+    this.type(this.name, (char) => (this.displayName += char), 68, () => {
+      this.timers.push(setTimeout(() => {
+        this.cursorOn = 'role';
+        this.type(this.role, (char) => (this.displayRole += char), 55, () => {
+          this.timers.push(setTimeout(() => {
+            this.cursorOn = 'none';
+            sessionStorage.setItem('hero-typed', '1');
+          }, 900));
+        });
+      }, 250));
+    });
+  }
+
+  ngOnDestroy() {
+    this.timers.forEach(clearTimeout);
+  }
+
+  private type(text: string, append: (c: string) => void, speed: number, done: () => void) {
+    let i = 0;
+    const tick = () => {
+      if (i < text.length) {
+        append(text[i++]);
+        this.timers.push(setTimeout(tick, speed + Math.random() * 30));
+      } else {
+        done();
+      }
+    };
+    this.timers.push(setTimeout(tick, speed));
+  }
 
   scrollTo(event: Event) {
     event.preventDefault();

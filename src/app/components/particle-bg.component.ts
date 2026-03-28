@@ -15,10 +15,19 @@ interface Particle {
   baseY: number;
   vx: number;
   vy: number;
-  size: number;
   opacity: number;
   baseOpacity: number;
 }
+
+const SIZE        = 1.5;
+const SPACING     = 45;
+const LIGHT_R     = 150;
+const LIGHT_R2    = LIGHT_R * LIGHT_R;
+const WAVE_R      = 280;
+const WAVE_R2     = WAVE_R * WAVE_R;
+const PUSH        = 3;
+const FRICTION    = 0.84;
+const RETURN      = 0.08;
 
 @Component({
   selector: 'app-particle-bg',
@@ -33,8 +42,6 @@ interface Particle {
       height: 100%;
       pointer-events: none;
       z-index: 0;
-      filter: blur(0.7px);
-      opacity: 0.7;
     }
   `],
 })
@@ -45,15 +52,11 @@ export class ParticleBgComponent implements OnInit, OnDestroy {
   private particles: Particle[] = [];
   private mouse = { x: -9999, y: -9999 };
   private rafId = 0;
-  private cols = 0;
-  private rows = 0;
-  private spacing = 40;
 
   constructor(private zone: NgZone) {}
 
   ngOnInit() {
-    const canvas = this.canvasRef.nativeElement;
-    this.ctx = canvas.getContext('2d')!;
+    this.ctx = this.canvasRef.nativeElement.getContext('2d')!;
     this.resize();
     this.zone.runOutsideAngular(() => this.loop());
   }
@@ -65,7 +68,7 @@ export class ParticleBgComponent implements OnInit, OnDestroy {
   @HostListener('window:resize')
   resize() {
     const canvas = this.canvasRef.nativeElement;
-    canvas.width = window.innerWidth;
+    canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
     this.buildGrid();
   }
@@ -83,28 +86,15 @@ export class ParticleBgComponent implements OnInit, OnDestroy {
   }
 
   private buildGrid() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    this.cols = Math.ceil(w / this.spacing) + 1;
-    this.rows = Math.ceil(h / this.spacing) + 1;
+    const cols = Math.ceil(window.innerWidth  / SPACING) + 1;
+    const rows = Math.ceil(window.innerHeight / SPACING) + 1;
     this.particles = [];
-
-    for (let r = 0; r < this.rows; r++) {
-      for (let c = 0; c < this.cols; c++) {
-        const x = c * this.spacing;
-        const y = r * this.spacing;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const x = c * SPACING;
+        const y = r * SPACING;
         const baseOpacity = 0.15 + Math.random() * 0.1;
-        this.particles.push({
-          x,
-          y,
-          baseX: x,
-          baseY: y,
-          vx: 0,
-          vy: 0,
-          size: 1.5,
-          opacity: baseOpacity,
-          baseOpacity,
-        });
+        this.particles.push({ x, y, baseX: x, baseY: y, vx: 0, vy: 0, opacity: baseOpacity, baseOpacity });
       }
     }
   }
@@ -116,43 +106,29 @@ export class ParticleBgComponent implements OnInit, OnDestroy {
   }
 
   private update() {
-    const mouseX = this.mouse.x;
-    const mouseY = this.mouse.y;
-    const lightRadius = 160;
-    const waveRadius = 300;
-    const pushStrength = 60;
-    const friction = 0.85;
-    const returnSpeed = 0.08;
+    const mx = this.mouse.x;
+    const my = this.mouse.y;
 
     for (const p of this.particles) {
-      const dx = p.x - mouseX;
-      const dy = p.y - mouseY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      const d2 = dx * dx + dy * dy;
 
-      // Wave ripple displacement
-      if (dist < waveRadius && dist > 0) {
-        const waveFactor = (1 - dist / waveRadius);
-        const angle = Math.atan2(dy, dx);
-        const push = pushStrength * waveFactor * waveFactor;
-        p.vx += Math.cos(angle) * push * 0.05;
-        p.vy += Math.sin(angle) * push * 0.05;
+      if (d2 < WAVE_R2 && d2 > 0) {
+        const dist = Math.sqrt(d2);
+        const f    = (1 - dist / WAVE_R);
+        p.vx += (dx / dist) * PUSH * f * f;
+        p.vy += (dy / dist) * PUSH * f * f;
       }
 
-      // Apply velocity with friction
-      p.vx *= friction;
-      p.vy *= friction;
-
-      // Snap back to base position
-      p.vx += (p.baseX - p.x) * returnSpeed;
-      p.vy += (p.baseY - p.y) * returnSpeed;
-
+      p.vx = p.vx * FRICTION + (p.baseX - p.x) * RETURN;
+      p.vy = p.vy * FRICTION + (p.baseY - p.y) * RETURN;
       p.x += p.vx;
       p.y += p.vy;
 
-      // Light effect: brightness near cursor
-      if (dist < lightRadius) {
-        const glow = 1 - dist / lightRadius;
-        p.opacity = p.baseOpacity + glow * 0.75;
+      if (d2 < LIGHT_R2) {
+        const glow = 1 - Math.sqrt(d2) / LIGHT_R;
+        p.opacity = p.baseOpacity + glow * 0.7;
       } else {
         p.opacity += (p.baseOpacity - p.opacity) * 0.06;
       }
@@ -161,42 +137,52 @@ export class ParticleBgComponent implements OnInit, OnDestroy {
 
   private draw() {
     const canvas = this.canvasRef.nativeElement;
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const ctx    = this.ctx;
+    const mx     = this.mouse.x;
+    const my     = this.mouse.y;
 
-    const mouseX = this.mouse.x;
-    const mouseY = this.mouse.y;
-    const lightRadius = 160;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // ── Dim dots (white) ──────────────────────────────────────────
+    ctx.beginPath();
     for (const p of this.particles) {
-      const dx = p.x - mouseX;
-      const dy = p.y - mouseY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      // Color: glow red near cursor, dim white otherwise
-      let r = 240, g = 240, b = 240;
-      if (dist < lightRadius) {
-        const t = 1 - dist / lightRadius;
-        r = Math.round(240 + (229 - 240) * t); // 240 → 229
-        g = Math.round(240 + (57  - 240) * t); // 240 → 57
-        b = Math.round(240 + (53  - 240) * t); // 240 → 53
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      if (dx * dx + dy * dy >= LIGHT_R2) {
+        ctx.moveTo(p.x + SIZE, p.y);
+        ctx.arc(p.x, p.y, SIZE, 0, 6.2832);
       }
+    }
+    ctx.fillStyle = `rgba(240,240,240,0.22)`;
+    ctx.fill();
 
-      this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(1, p.opacity)})`;
-      this.ctx.fill();
+    // ── Lit dots (colour-shifted near cursor) ─────────────────────
+    for (const p of this.particles) {
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      const d2 = dx * dx + dy * dy;
+      if (d2 < LIGHT_R2) {
+        const t = 1 - Math.sqrt(d2) / LIGHT_R;
+        const r = Math.round(240 + (229 - 240) * t);
+        const g = Math.round(240 + (57  - 240) * t);
+        const b = Math.round(240 + (53  - 240) * t);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, SIZE, 0, 6.2832);
+        ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(1, p.opacity)})`;
+        ctx.fill();
+      }
     }
 
-    // Radial light halo around cursor
-    if (mouseX > 0) {
-      const grad = this.ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, lightRadius);
-      grad.addColorStop(0,   'rgba(229,57,53,0.06)');
+    // ── Cursor halo ───────────────────────────────────────────────
+    if (mx > 0) {
+      const grad = ctx.createRadialGradient(mx, my, 0, mx, my, LIGHT_R);
+      grad.addColorStop(0,   'rgba(229,57,53,0.07)');
       grad.addColorStop(0.5, 'rgba(229,57,53,0.02)');
       grad.addColorStop(1,   'rgba(229,57,53,0)');
-      this.ctx.beginPath();
-      this.ctx.arc(mouseX, mouseY, lightRadius, 0, Math.PI * 2);
-      this.ctx.fillStyle = grad;
-      this.ctx.fill();
+      ctx.beginPath();
+      ctx.arc(mx, my, LIGHT_R, 0, 6.2832);
+      ctx.fillStyle = grad;
+      ctx.fill();
     }
   }
 }
