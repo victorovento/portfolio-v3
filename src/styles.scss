@@ -30,6 +30,11 @@ body {
   overflow-x: hidden;
 }
 
+app-root > *:not(app-particle-bg) {
+  position: relative;
+  z-index: 1;
+}
+
 a {
   color: inherit;
 }

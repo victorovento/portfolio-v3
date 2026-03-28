@@ -5,6 +5,7 @@ import { AboutComponent }     from './components/about.component';
 import { ExperienceComponent } from './components/experience.component';
 import { SkillsComponent }    from './components/skills.component';
 import { ContactComponent }   from './components/contact.component';
+import { ParticleBgComponent } from './components/particle-bg.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { ContactComponent }   from './components/contact.component';
     ExperienceComponent,
     SkillsComponent,
     ContactComponent,
+    ParticleBgComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

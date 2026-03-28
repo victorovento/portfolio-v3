@@ -48,7 +48,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       display: flex;
       align-items: center;
       padding: 80px 0 0;
-      background: #0a0a0a;
+      background: transparent;
       overflow: hidden;
     }
 
@@ -77,6 +77,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       letter-spacing: 2.5px;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
+      text-shadow: 0 0 12px rgba(229, 57, 53, 0.55), 0 0 30px rgba(229, 57, 53, 0.2);
     }
 
     h1 {
@@ -86,6 +87,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       letter-spacing: -3px;
       color: #f0f0f0;
       margin-bottom: 0.75rem;
+      text-shadow: 0 0 40px rgba(10,10,10,0.95), 0 0 80px rgba(10,10,10,0.8), 0 2px 24px rgba(240,240,240,0.07);
     }
 
     .role {
@@ -94,6 +96,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       color: #3a3a3a;
       letter-spacing: -1px;
       margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(10,10,10,0.9);
     }
 
     .tagline {
@@ -101,6 +104,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
       color: #505050;
       margin-bottom: 3rem;
       max-width: 460px;
+      text-shadow: 0 0 16px rgba(10,10,10,0.9);
     }
 
     /* ── Social Icons ── */

@@ -43,7 +43,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
   styles: [`
     section {
       padding: 110px 0;
-      background: #0a0a0a;
+      background: transparent;
     }
 
     .container {

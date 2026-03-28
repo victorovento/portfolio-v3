@@ -45,7 +45,7 @@ import { FadeInDirective } from '../directives/fade-in.directive';
   `,
   styles: [`
     section {
-      background: #0a0a0a;
+      background: transparent;
       border-top: 1px solid #141414;
     }
 
