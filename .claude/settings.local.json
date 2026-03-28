@@ -5,7 +5,10 @@
       "Bash(npx @angular/cli@latest version)",
       "Bash(npx:*)",
       "Bash(npm install:*)",
-      "Bash(npm start:*)"
+      "Bash(npm start:*)",
+      "Bash(grep -n background /Users/victor/Desktop/portfolio-v3/src/app/components/*.scss)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
