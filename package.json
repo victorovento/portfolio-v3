@@ -10,6 +10,7 @@
     "spotify:auth": "node --env-file-if-exists=.env scripts/spotify-auth.mjs",
     "tweets": "node --env-file-if-exists=.env scripts/fetch-tweets.mjs",
     "github": "node scripts/fetch-github.mjs",
+    "travel-map": "node scripts/build-travel-map.mjs",
     "prebuild": "node scripts/build-info.mjs && npm run steam && npm run psn && npm run spotify && npm run tweets && npm run github",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

@@ -22,6 +22,8 @@ export const palette: Record<string, string> = {
   F: '#1877f2', // facebook blue
   O: '#ff4500', // reddit orange
   D: '#5865f2', // discord blurple
+  L: '#4caf50', // land green
+  W: '#1e88e5', // water blue
 };
 
 // One trophy cup, recoloured per grade ('X' is swapped for the grade color).
@@ -278,5 +280,18 @@ export const sprites = {
     '..bk.....kb..',
     '...b.....b...',
     '.............',
+  ],
+  globe: [
+    '...kkkkk...',
+    '..kWWLLWk..',
+    '.kWLLLWWWk.',
+    'kWWLLWWLLWk',
+    'kWWWLWWLLLk',
+    'kWWWWWWLLWk',
+    'kLWWWWWWLWk',
+    'kLLWWWWWWWk',
+    '.kLLWWWWWk.',
+    '..kWWWWWk..',
+    '...kkkkk...',
   ],
 } satisfies Record<string, string[]>;

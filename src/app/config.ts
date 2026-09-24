@@ -288,3 +288,36 @@ export const site = {
   // Reset this when something breaks in production.
   lastBug: '2026-09-24',
 };
+
+// ─── Travel map (travel page) ─────────────────────────────────────────────────
+// Names must match the map's regions (Natural Earth names).
+export interface Place {
+  region: string;
+  cities?: string[];
+}
+
+export const travel = {
+  usStates: [
+    'Texas', 'Florida', 'Georgia', 'Maryland', 'Virginia', 'West Virginia', 'Pennsylvania',
+    'North Carolina', 'New Jersey', 'Delaware', 'New York', 'Connecticut', 'South Carolina',
+    'Alabama', 'Mississippi', 'Louisiana', 'Oklahoma', 'Tennessee', 'Kentucky', 'Massachusetts',
+    'New Hampshire', 'Maine', 'Rhode Island', 'Vermont', 'Minnesota', 'Wisconsin', 'Indiana',
+    'Illinois', 'Missouri', 'Kansas', 'Colorado', 'New Mexico', 'Arkansas', 'Nevada', 'Arizona',
+    'California', 'Oregon', 'Washington', 'Idaho', 'Montana', 'Utah', 'District of Columbia',
+  ],
+  canada: [{ region: 'Ontario' }] as Place[],
+  mexico: [
+    { region: 'Quintana Roo', cities: ['Cancún'] },
+    { region: 'Chiapas', cities: ['Tapachula'] },
+    { region: 'Oaxaca', cities: ['Oaxaca'] },
+    { region: 'Ciudad de México', cities: ['Mexico City'] },
+    { region: 'Nuevo León', cities: ['Monterrey'] },
+    { region: 'Tamaulipas', cities: ['Reynosa'] },
+  ] as Place[],
+  // Visited as a whole (no subdivisions on the map).
+  countries: ['Cuba', 'Guatemala', 'Honduras', 'Nicaragua', 'Puerto Rico'],
+  markers: [
+    { label: 'born here', icon: 'star', lat: 22.0, lon: -79.5, where: 'Cuba' },
+    { label: 'home', icon: 'home', lat: 28.0836, lon: -80.6081, where: 'Melbourne, FL' },
+  ] as const,
+};

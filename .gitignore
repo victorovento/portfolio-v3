@@ -45,3 +45,6 @@ Thumbs.db
 
 # Local secrets (STEAM_API_KEY)
 .env
+
+# Downloaded map data (npm run travel-map)
+/.cache

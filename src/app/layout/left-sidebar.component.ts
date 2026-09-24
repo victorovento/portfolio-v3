@@ -187,6 +187,7 @@ export class LeftSidebarComponent {
     { path: '/experience', label: 'experience', icon: 'briefcase' },
     { path: '/projects', label: 'projects', icon: 'folder' },
     { path: '/skills', label: 'skills', icon: 'star' },
+    { path: '/travel', label: 'travel', icon: 'globe' },
     { path: '/links', label: 'cool links', icon: 'chain' },
     { path: '/contact', label: 'contact', icon: 'mail' },
   ];
