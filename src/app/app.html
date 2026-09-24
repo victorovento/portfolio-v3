@@ -1,7 +1,39 @@
-<app-particle-bg />
-<app-navbar />
-<app-hero />
-<app-about />
-<app-experience />
-<app-skills />
-<app-contact />
+<app-rain />
+<app-sparkles />
+<app-easter-egg />
+
+<a class="skip" href="#main" (click)="skipToContent($event)">skip to content</a>
+
+<div class="page">
+  <header class="banner box">
+    <div class="banner-inner">
+      <h1 class="logo" data-text="VICTOR VENTO">VICTOR VENTO</h1>
+      <p class="sub">~ software developer ~ {{ personal.location.toLowerCase() }} ~</p>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        @for (_ of [0, 1]; track $index) {
+          @for (m of marquee; track m) {
+            <span>★ {{ m }}</span>
+          }
+        }
+      </div>
+    </div>
+  </header>
+
+  <div class="columns">
+    <app-left-sidebar class="left" />
+    <main id="main" class="main" tabindex="-1">
+      <router-outlet />
+    </main>
+    <app-right-sidebar class="right" />
+  </div>
+
+  <footer class="footer box">
+    <p>© {{ year }} {{ personal.name }} · hand-made with Angular, coffee &amp; ♥</p>
+    <p class="small">
+      inspired by <a href="https://dimden.dev/" target="_blank" rel="noopener">dimden.dev</a> ·
+      best viewed at 1024×768 in any browser
+    </p>
+  </footer>
+</div>

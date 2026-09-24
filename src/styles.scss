@@ -5,62 +5,200 @@
 }
 
 :root {
-  --bg: #0a0a0a;
-  --bg-alt: #0f0f0f;
-  --card: #131313;
-  --border: #1e1e1e;
+  --bg: #050505;
+  --box: rgba(12, 12, 12, 0.94);
+  --box-inner: #111;
+  --border: #3a0d0c;
   --red: #e53935;
-  --red-hover: #ef5350;
-  --text: #f0f0f0;
-  --text-muted: #606060;
-  --text-dim: #303030;
+  --red-hover: #ff6f60;
+  --red-dark: #8e1b18;
+  --pink: #ff8a80;
+  --yellow: #ffd54f;
+  --text: #e8e8e8;
+  --text-muted: #8a8a8a;
+  --pixel: 'Press Start 2P', 'Courier New', monospace;
+  --heading: 'Jersey 10', 'Press Start 2P', monospace;
+  --body: Verdana, Tahoma, Geneva, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+// A tiled starfield in two layers; the far layer drifts slowly.
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  font-family: var(--body);
+  font-size: 13px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' shape-rendering='crispEdges'%3E%3Cg fill='%23e53935'%3E%3Crect x='12' y='20' width='2' height='2'/%3E%3Crect x='70' y='64' width='1' height='1'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Crect x='40' y='8' width='1' height='1'/%3E%3Crect x='84' y='30' width='1' height='1'/%3E%3Crect x='26' y='78' width='1' height='1'/%3E%3Crect x='56' y='44' width='2' height='2'/%3E%3C/g%3E%3Cg fill='%23ffd54f'%3E%3Crect x='89' y='86' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' shape-rendering='crispEdges'%3E%3Cg fill='%23ffffff' fill-opacity='.25'%3E%3Crect x='5' y='9' width='1' height='1'/%3E%3Crect x='31' y='22' width='1' height='1'/%3E%3Crect x='18' y='40' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E");
+  animation: drift 120s linear infinite;
   overflow-x: hidden;
+  image-rendering: pixelated;
+  // Pixel fonts' fl/fi ligatures read as other letters.
+  font-variant-ligatures: none;
 }
 
-app-root > *:not(app-particle-bg):not(app-navbar) {
-  position: relative;
-  z-index: 1;
+@keyframes drift {
+  to { background-position: 0 0, 480px 240px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html { scroll-behavior: auto; }
 }
 
 a {
-  color: inherit;
+  color: var(--red-hover);
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+a:visited { color: var(--pink); }
+a:hover {
+  color: var(--yellow);
+  text-decoration-style: solid;
 }
 
-img {
-  max-width: 100%;
-}
+img { max-width: 100%; }
+img.pixelated { image-rendering: pixelated; }
 
 ::selection {
-  background: rgba(229, 57, 53, 0.25);
-  color: var(--text);
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #252525;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
   background: var(--red);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px dashed var(--yellow);
+  outline-offset: 2px;
+}
+
+// ── Retro boxes ──────────────────────────────────────────────────────────────
+.box {
+  background: var(--box);
+  border: 2px solid var(--border);
+  box-shadow: 4px 4px 0 rgba(229, 57, 53, 0.25);
+}
+
+.box-title {
+  font-family: var(--pixel);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  padding: 6px 8px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%);
+  border-bottom: 2px solid var(--border);
+  text-transform: lowercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  // Fake window controls.
+  .controls {
+    display: flex;
+    gap: 3px;
+    span {
+      width: 9px;
+      height: 9px;
+      background: #0b0b0b;
+      border: 1px solid #fff;
+    }
+  }
+}
+
+.box-body {
+  padding: 12px;
+}
+
+// ── Headings ─────────────────────────────────────────────────────────────────
+h1, h2, h3 {
+  font-family: var(--heading);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0 var(--red-dark);
+  span { color: var(--red); }
+}
+h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+p + p { margin-top: 10px; }
+
+hr.dotted {
+  border: 0;
+  border-top: 2px dotted var(--border);
+  margin: 12px 0;
+}
+
+// ── Beveled Win98-ish button ─────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--pixel);
+  font-size: 9px;
+  color: #fff !important;
+  text-decoration: none;
+  background: var(--red-dark);
+  border: 2px solid;
+  border-color: var(--pink) #3a0605 #3a0605 var(--pink);
+  padding: 7px 10px;
+  cursor: pointer;
+  &:hover { background: var(--red); }
+  &:active {
+    border-color: #3a0605 var(--pink) var(--pink) #3a0605;
+    transform: translate(1px, 1px);
+  }
+}
+
+// ── Tags ─────────────────────────────────────────────────────────────────────
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 1px 6px;
+  border: 1px solid var(--red-dark);
+  background: #1a0606;
+  color: var(--pink);
+}
+
+// ── Blinkies (150x20) ────────────────────────────────────────────────────────
+.blinkie {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 20px;
+  font-family: var(--pixel);
+  font-size: 7px;
+  color: #fff;
+  border: 1px solid #fff;
+  background: repeating-linear-gradient(45deg, var(--red-dark) 0 4px, var(--red) 4px 8px);
+  animation: blink 1s steps(1) infinite;
+  &.alt { background: repeating-linear-gradient(90deg, #111 0 3px, #222 3px 6px); color: var(--yellow); }
+  &.slow { animation-duration: 2s; }
+}
+@keyframes blink {
+  50% { color: transparent; }
+}
+
+// ── Scrollbar ────────────────────────────────────────────────────────────────
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #0b0b0b; border-left: 1px solid var(--border); }
+::-webkit-scrollbar-thumb {
+  background: var(--red-dark);
+  border: 2px solid #0b0b0b;
+  &:hover { background: var(--red); }
 }

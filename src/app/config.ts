@@ -115,3 +115,81 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ];
+
+// ─── Status box (left sidebar) ────────────────────────────────────────────────
+// Edit these whenever you feel like it and redeploy.
+export const status = {
+  feeling: 'caffeinated ☕',
+  listening: 'lofi chiptunes',
+  workingOn: 'this very website',
+  reading: 'Designing Data-Intensive Applications',
+  updated: '2026-09-24',
+};
+
+// ─── Updates log (right sidebar) ──────────────────────────────────────────────
+// Newest first.
+export interface Update {
+  date: string; // YYYY-MM-DD
+  text: string;
+}
+
+export const updates: Update[] = [
+  { date: '2026-09-24', text: 'Redesigned the whole site in glorious retro style!' },
+  { date: '2026-09-24', text: 'Added a projects page and a cool links page.' },
+  { date: '2026-09-24', text: 'There might be a secret or two hidden around here...' },
+  { date: '2026-04-30', text: 'Added a photo of me.' },
+  { date: '2026-03-28', text: 'Site v3 went live.' },
+];
+
+// ─── Projects ─────────────────────────────────────────────────────────────────
+export interface Project {
+  name: string;
+  description: string;
+  tech: string[];
+  url?: string;
+  repo?: string;
+  status: 'live' | 'wip' | 'archived';
+}
+
+// TODO: replace the placeholder entry with your own projects.
+export const projects: Project[] = [
+  {
+    name: 'victorvento.net',
+    description:
+      'The site you are looking at right now. A retro personal homepage built with Angular, pixel art drawn in code, a WebAudio chiptune player and a few secrets.',
+    tech: ['Angular', 'TypeScript', 'SCSS', 'WebAudio'],
+    url: 'https://victorvento.net',
+    repo: 'https://github.com/victorovento',
+    status: 'live',
+  },
+  {
+    name: 'PreK.Club',
+    description:
+      'Platform for pre-kindergarten programs. Serverless microservices on Google Cloud, an SSR Angular front end and Stripe-powered payments.',
+    tech: ['Angular SSR', 'GCP', 'Firestore', 'Stripe'],
+    url: 'https://prek.club',
+    status: 'live',
+  },
+  {
+    name: 'Project Placeholder',
+    description: 'Describe a side project here: what it does, why you built it and what you learned.',
+    tech: ['Node.js', 'MongoDB'],
+    repo: 'https://github.com/victorovento',
+    status: 'wip',
+  },
+];
+
+// ─── Cool links ───────────────────────────────────────────────────────────────
+export interface CoolLink {
+  name: string;
+  url: string;
+  description: string;
+}
+
+export const coolLinks: CoolLink[] = [
+  { name: 'dimden.dev', url: 'https://dimden.dev/', description: 'The personal site that inspired this redesign.' },
+  { name: 'Neocities', url: 'https://neocities.org/', description: 'Free hosting for the personal web. Keeping the old internet alive.' },
+  { name: '32-Bit Cafe', url: 'https://32bit.cafe/', description: 'A community of personal website enthusiasts.' },
+  { name: 'Angular', url: 'https://angular.dev/', description: 'The framework this site is built with.' },
+  { name: 'Hacker News', url: 'https://news.ycombinator.com/', description: 'My daily dose of tech news.' },
+];

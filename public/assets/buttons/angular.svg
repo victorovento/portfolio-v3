@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" shape-rendering="crispEdges">
+  <rect width="88" height="31" fill="#c3002f"/>
+  <rect x="1" y="1" width="86" height="29" fill="none" stroke="#fff" stroke-opacity=".5"/>
+  <path d="M15 4 L26 8 L24 23 L15 28 L6 23 L4 8 Z" fill="#fff"/>
+  <path d="M15 8 L20 22 H18 L17 19 H13 L12 22 H10 Z M14 17 H16 L15 13 Z" fill="#c3002f"/>
+  <text x="31" y="13" font-family="Verdana, Tahoma, sans-serif" font-size="7" fill="#fff">made with</text>
+  <text x="31" y="24" font-family="Verdana, Tahoma, sans-serif" font-size="9" font-weight="bold" fill="#fff">Angular</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" shape-rendering="crispEdges">
+  <rect width="88" height="31" fill="#3e2723"/>
+  <rect x="1" y="1" width="86" height="29" fill="none" stroke="#ffd54f" stroke-opacity=".7"/>
+  <g fill="#f0f0f0"><rect x="6" y="12" width="14" height="12"/><rect x="20" y="14" width="4" height="2"/><rect x="22" y="16" width="2" height="4"/><rect x="20" y="20" width="4" height="2"/></g>
+  <rect x="8" y="13" width="10" height="3" fill="#6d4c41"/>
+  <g fill="#9a9a9a"><rect x="9" y="5" width="1" height="2"/><rect x="10" y="7" width="1" height="2"/><rect x="14" y="4" width="1" height="2"/><rect x="15" y="6" width="1" height="2"/></g>
+  <text x="29" y="13" font-family="Verdana, Tahoma, sans-serif" font-size="7" fill="#ffd54f">powered by</text>
+  <text x="29" y="24" font-family="Verdana, Tahoma, sans-serif" font-size="9" font-weight="bold" fill="#fff">COFFEE</text>
+</svg>

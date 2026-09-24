@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "steam": "node --env-file-if-exists=.env scripts/fetch-steam.mjs",
+    "prebuild": "npm run steam",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

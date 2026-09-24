@@ -1,0 +1,71 @@
+{
+  "fetchedAt": "2026-09-24T12:24:00.380Z",
+  "source": "api",
+  "profile": {
+    "name": "victor",
+    "avatar": "https://avatars.steamstatic.com/22d500118fb0d87b56e798b02868a134970c785e_full.jpg",
+    "url": "https://steamcommunity.com/id/victorvento/",
+    "status": "offline",
+    "inGame": null,
+    "memberSince": "2017-06-28",
+    "country": "United States",
+    "level": 40
+  },
+  "library": {
+    "gameCount": 87,
+    "totalHours": 500.7,
+    "hours2Weeks": 0.5
+  },
+  "badges": {
+    "count": 25,
+    "xp": 10360
+  },
+  "topGames": [
+    {
+      "appid": 3240220,
+      "name": "Grand Theft Auto V Enhanced",
+      "hours": 168.3,
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3240220/a318bd9affe8eee32984b18794b273c256e9b2d6/capsule_231x87.jpg?t=1781187782"
+    },
+    {
+      "appid": 1174180,
+      "name": "Red Dead Redemption 2",
+      "hours": 141.2,
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/capsule_231x87.jpg?t=1759502961"
+    },
+    {
+      "appid": 1546970,
+      "name": "Grand Theft Auto III - The Definitive Edition",
+      "hours": 37.6,
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/capsule_231x87.jpg?t=1781138540"
+    },
+    {
+      "appid": 270880,
+      "name": "American Truck Simulator",
+      "hours": 33.3,
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/270880/88c2cee5f2465504ede8d7b4de71a691e11ad384/capsule_231x87_alt_assets_8.jpg?t=1790001365"
+    },
+    {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "hours": 19.2,
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/590e0988a2fb79f44d3e31e41fd4949eb76abc41/capsule_231x87.jpg?t=1784714077"
+    }
+  ],
+  "recent": [
+    {
+      "appid": 883710,
+      "name": "Resident Evil 2",
+      "hours2Weeks": 0.4,
+      "hours": 0.4,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/883710/86ef2fdebeced746313994ccf2d7afb1f2887bf0.jpg"
+    },
+    {
+      "appid": 304240,
+      "name": "Resident Evil",
+      "hours2Weeks": 0.2,
+      "hours": 0.2,
+      "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/304240/a60a960c76f26ab81773d4f2d372836db37a0012.jpg"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" shape-rendering="crispEdges">
+  <rect width="88" height="31" fill="#c0c0c0"/>
+  <path d="M0 0 H88 V1 H1 V31 H0 Z" fill="#fff"/><path d="M87 1 H88 V31 H1 V30 H87 Z" fill="#404040"/>
+  <text x="44" y="12" text-anchor="middle" font-family="Verdana, Tahoma, sans-serif" font-size="7" fill="#000">best viewed with</text>
+  <text x="44" y="23" text-anchor="middle" font-family="Verdana, Tahoma, sans-serif" font-size="8" font-weight="bold" fill="#000080">ANY BROWSER</text>
+</svg>

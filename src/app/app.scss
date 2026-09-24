@@ -1,0 +1,129 @@
+.skip {
+  position: absolute;
+  left: -9999px;
+  &:focus {
+    left: 8px;
+    top: 8px;
+    z-index: 10000;
+    background: #000;
+    padding: 6px;
+  }
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ── Banner ───────────────────────────────────────────────────────────────────
+.banner {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(229, 57, 53, 0.35), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 3px),
+    #0b0b0b;
+}
+
+.banner-inner {
+  padding: 28px 16px 20px;
+  text-align: center;
+}
+
+.logo {
+  font-family: var(--pixel);
+  font-size: clamp(20px, 5vw, 42px);
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow:
+    3px 3px 0 var(--red),
+    6px 6px 0 var(--red-dark),
+    9px 9px 0 #2a0706;
+  animation: wobble 4s steps(4) infinite;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.sub {
+  font-family: var(--heading);
+  font-size: 22px;
+  color: var(--pink);
+  margin-top: 16px;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 2px solid var(--border);
+  background: #000;
+  font-family: var(--pixel);
+  font-size: 8px;
+  color: var(--yellow);
+  padding: 6px 0;
+
+  .track {
+    display: inline-flex;
+    gap: 40px;
+    padding-right: 40px;
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+// ── Columns ──────────────────────────────────────────────────────────────────
+.columns {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 200px;
+  gap: 12px;
+  align-items: start;
+}
+
+.main {
+  min-width: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  .small {
+    color: var(--text-muted);
+    font-size: 10px;
+    margin-top: 4px;
+  }
+}
+
+// Tablet: right sidebar drops below the content.
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .right {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: start;
+  }
+}
+
+// Phone: everything stacks, content first after the nav.
+@media (max-width: 640px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+  .left { display: contents; }
+  .main { order: 1; }
+  .right { order: 3; }
+}
+.main:focus { outline: none; }

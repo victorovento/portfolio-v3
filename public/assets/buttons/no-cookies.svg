@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" shape-rendering="crispEdges">
+  <rect width="88" height="31" fill="#0b0b0b"/>
+  <rect x="1" y="1" width="86" height="29" fill="none" stroke="#4caf50"/>
+  <circle cx="15" cy="15.5" r="9" fill="#c68642"/>
+  <g fill="#3e2723"><rect x="11" y="11" width="2" height="2"/><rect x="17" y="13" width="2" height="2"/><rect x="12" y="18" width="2" height="2"/><rect x="18" y="19" width="2" height="2"/></g>
+  <path d="M6 6 L24 25" stroke="#e53935" stroke-width="2"/>
+  <text x="29" y="13" font-family="Verdana, Tahoma, sans-serif" font-size="7" fill="#4caf50">this site has</text>
+  <text x="29" y="24" font-family="Verdana, Tahoma, sans-serif" font-size="8" font-weight="bold" fill="#fff">NO COOKIES</text>
+</svg>
