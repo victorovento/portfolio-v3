@@ -4,7 +4,10 @@ import { personal, status } from '../config';
 import { PixelComponent } from '../pixel/pixel.component';
 import { SpriteName } from '../pixel/sprites';
 import { MascotComponent } from '../components/mascot.component';
+import { SocialsComponent } from '../components/socials.component';
+import { GithubActivityComponent } from '../components/github-activity.component';
 import { ChiptuneService } from '../services/chiptune.service';
+import { LastfmService } from '../services/lastfm.service';
 
 interface NavItem {
   path: string;
@@ -14,7 +17,7 @@ interface NavItem {
 
 @Component({
   selector: 'app-left-sidebar',
-  imports: [RouterLink, RouterLinkActive, PixelComponent, MascotComponent],
+  imports: [RouterLink, RouterLinkActive, PixelComponent, MascotComponent, SocialsComponent, GithubActivityComponent],
   template: `
     <nav class="box" aria-label="Main">
       <div class="box-title">navigation <span class="controls"><span></span><span></span></span></div>
@@ -34,16 +37,25 @@ interface NavItem {
       </ul>
     </nav>
 
+    <app-socials />
+
     <section class="box">
       <div class="box-title">status</div>
       <dl class="box-body status">
         <dt>feeling</dt><dd>{{ status.feeling }}</dd>
-        <dt>listening to</dt><dd>{{ status.listening }}</dd>
+        <dt>listening to</dt>
+        @if (fm.nowPlaying(); as t) {
+          <dd><span class="live">♪</span> <a [href]="t.url" target="_blank" rel="noopener">{{ t.name }}</a> - {{ t.artist }}</dd>
+        } @else {
+          <dd>{{ status.listening }}</dd>
+        }
         <dt>working on</dt><dd>{{ status.workingOn }}</dd>
         <dt>reading</dt><dd>{{ status.reading }}</dd>
         <dd class="updated">updated {{ status.updated }}</dd>
       </dl>
     </section>
+
+    <app-github-activity />
 
     <section class="box">
       <div class="box-title">my cat</div>
@@ -119,6 +131,7 @@ interface NavItem {
       font-weight: bold;
     }
     .status dd { margin-bottom: 4px; }
+    .status .live { color: var(--red); animation: blink 1.2s steps(1) infinite; }
     .status .updated {
       color: var(--text-muted);
       font-size: 10px;
@@ -159,12 +172,13 @@ interface NavItem {
     /* On phones the host is display: contents; keep nav above the page content. */
     @media (max-width: 640px) {
       nav { order: 0; }
-      section { order: 2; }
+      section, app-socials, app-github-activity { order: 2; }
     }
   `],
 })
 export class LeftSidebarComponent {
   readonly music = inject(ChiptuneService);
+  readonly fm = inject(LastfmService);
   readonly status = status;
   readonly personal = personal;
 
@@ -176,4 +190,9 @@ export class LeftSidebarComponent {
     { path: '/links', label: 'cool links', icon: 'chain' },
     { path: '/contact', label: 'contact', icon: 'mail' },
   ];
+
+  constructor() {
+    // Live "listening to" from Last.fm on every page (no-op until configured).
+    this.fm.start();
+  }
 }

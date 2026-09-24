@@ -126,56 +126,101 @@ export const status = {
   updated: '2026-09-24',
 };
 
-// ─── Updates log (right sidebar) ──────────────────────────────────────────────
-// Newest first.
-export interface Update {
-  date: string; // YYYY-MM-DD
-  text: string;
-}
-
-export const updates: Update[] = [
-  { date: '2026-09-24', text: 'Redesigned the whole site in glorious retro style!' },
-  { date: '2026-09-24', text: 'Added a projects page and a cool links page.' },
-  { date: '2026-09-24', text: 'There might be a secret or two hidden around here...' },
-  { date: '2026-04-30', text: 'Added a photo of me.' },
-  { date: '2026-03-28', text: 'Site v3 went live.' },
-];
-
 // ─── Projects ─────────────────────────────────────────────────────────────────
 export interface Project {
   name: string;
   description: string;
+  /** Short, concrete bullets: what you built and how. */
+  highlights?: string[];
   tech: string[];
   url?: string;
   repo?: string;
+  year?: string;
   status: 'live' | 'wip' | 'archived';
 }
 
-// TODO: replace the placeholder entry with your own projects.
+// Strongest first. Everything here is a public repo on github.com/victorovento.
 export const projects: Project[] = [
   {
     name: 'victorvento.net',
     description:
-      'The site you are looking at right now. A retro personal homepage built with Angular, pixel art drawn in code, a WebAudio chiptune player and a few secrets.',
-    tech: ['Angular', 'TypeScript', 'SCSS', 'WebAudio'],
+      'This site: a hand-built retro homepage and portfolio. Angular 21 with standalone components, signals and zoneless change detection, plus build-time scripts that pull live stats from Steam, PlayStation, Spotify and GitHub.',
+    highlights: [
+      'Node build pipeline snapshots four third-party APIs to static JSON, with graceful fallbacks, so no API key ever reaches the browser',
+      'Chiptune music synthesized in real time with the WebAudio API; canvas particle effects that respect reduced-motion settings',
+      'Pixel art rendered from code as crisp SVG; lazy-loaded routes and a responsive three-column layout',
+    ],
+    tech: ['Angular 21', 'TypeScript', 'Signals', 'Node.js', 'WebAudio', 'Canvas'],
     url: 'https://victorvento.net',
-    repo: 'https://github.com/victorovento',
+    repo: 'https://github.com/victorovento/portfolio-v3',
+    year: '2026',
     status: 'live',
   },
   {
-    name: 'PreK.Club',
+    name: 'Developer Website Ideas',
     description:
-      'Platform for pre-kindergarten programs. Serverless microservices on Google Cloud, an SSR Angular front end and Stripe-powered payments.',
-    tech: ['Angular SSR', 'GCP', 'Firestore', 'Stripe'],
-    url: 'https://prek.club',
+      'An open-source, community-driven gallery of 240+ developer portfolios. Anyone can add their site with a one-line pull request; the app is Angular with server-side rendering for speed and SEO.',
+    highlights: [
+      'GitHub Actions validate every pull request (field format, https-only URLs, duplicate detection) and run the unit test suite',
+      'Searchable, filterable UI built from standalone Angular components',
+      'Content lives in a single Markdown file, so the whole site ships without a database',
+    ],
+    tech: ['Angular', 'SSR', 'TypeScript', 'GitHub Actions', 'Netlify'],
+    repo: 'https://github.com/victorovento/developer-website-ideas',
+    year: '2026',
     status: 'live',
   },
   {
-    name: 'Project Placeholder',
-    description: 'Describe a side project here: what it does, why you built it and what you learned.',
-    tech: ['Node.js', 'MongoDB'],
-    repo: 'https://github.com/victorovento',
-    status: 'wip',
+    name: 'MyPetLogger Website',
+    description:
+      'Marketing site for MyPetLogger, a privacy-first pet journal app for iOS and Android. Framework-free HTML, CSS and JavaScript, localized into 15 languages by a custom Python site generator.',
+    highlights: [
+      'Python build script generates every page for each locale, including right-to-left Arabic',
+      'Per-locale Open Graph metadata, sitemap and robots.txt for international SEO',
+      'Deployed to Netlify with custom security headers and redirects',
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Python', 'i18n', 'Netlify'],
+    repo: 'https://github.com/victorovento/mypetlogger-website',
+    year: '2026',
+    status: 'live',
+  },
+  {
+    name: 'Airport Management System',
+    description:
+      'Desktop application for day-to-day airport operations: scheduling flights, selling tickets, managing passengers and reporting revenue. Built with C# WinForms on .NET and a SQLite database.',
+    highlights: [
+      'Implemented a generic linked list (ILista<E>) from scratch as the in-memory data layer',
+      'Revenue reports per flight and per date range, with inline form validation',
+      'Shipped as versioned releases with a documented changelog',
+    ],
+    tech: ['C#', '.NET', 'WinForms', 'SQLite'],
+    repo: 'https://github.com/victorovento/airport-control',
+    year: '2019',
+    status: 'archived',
+  },
+  {
+    name: 'Karnaugh Map Solver',
+    description:
+      'Desktop tool that simplifies Boolean functions: fill in a 2-, 3- or 4-variable Karnaugh map and it returns the minimized expression. Java with a Swing interface.',
+    highlights: [
+      'Grouping algorithm looks for the largest valid groups first (16, 8, 4, then 2 cells) to produce the simplest expression',
+      'Separate solver per map size behind a single interactive GUI',
+    ],
+    tech: ['Java', 'Swing', 'Algorithms'],
+    repo: 'https://github.com/victorovento/Karnaugh-map-solver',
+    status: 'archived',
+  },
+  {
+    name: 'Statistical Variables Calculator',
+    description:
+      'Command-line tool that turns raw data into grouped frequency tables and computes measures of central tendency (mean, median, mode) and dispersion. A C++ university team project.',
+    highlights: [
+      'Handles discrete and continuous variables, with absolute, relative and cumulative frequencies',
+      'Frequency table stored in a hand-written doubly linked list',
+    ],
+    tech: ['C++', 'Data structures', 'Statistics'],
+    repo: 'https://github.com/victorovento/statistical-variables-calculator',
+    status: 'archived',
   },
 ];
 
@@ -193,3 +238,53 @@ export const coolLinks: CoolLink[] = [
   { name: 'Angular', url: 'https://angular.dev/', description: 'The framework this site is built with.' },
   { name: 'Hacker News', url: 'https://news.ycombinator.com/', description: 'My daily dose of tech news.' },
 ];
+
+// ─── Last.fm (live "listening to" in the status box) ─────────────────────────
+// While you're playing something that scrobbles to Last.fm, the status box
+// shows it; otherwise it falls back to status.listening. Last.fm API keys are
+// read-only and meant to be used client-side, so it's fine for this to be public.
+// Get a key at https://www.last.fm/api/account/create
+export const lastfm = {
+  username: 'victorvento',
+  apiKey: '5d54a16620fa062af350119c02baaaaf',
+};
+
+// ─── Socials (left sidebar) ───────────────────────────────────────────────────
+// `url` opens the profile; entries without one (Discord) copy `handle` instead.
+export interface Social {
+  name: string;
+  handle: string;
+  icon: 'instagram' | 'xlogo' | 'facebook' | 'reddit' | 'discord';
+  url?: string;
+}
+
+export const socials: Social[] = [
+  { name: 'Instagram', handle: '@victorovento', icon: 'instagram', url: 'https://www.instagram.com/victorovento' },
+  { name: 'X', handle: '@victorovento', icon: 'xlogo', url: 'https://x.com/victorovento' },
+  { name: 'Facebook', handle: 'Victor Vento', icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=61579601784245' },
+  { name: 'Reddit', handle: 'u/Impossible_Duty_3509', icon: 'reddit', url: 'https://www.reddit.com/user/Impossible_Duty_3509/' },
+  { name: 'Discord', handle: 'victor_vento', icon: 'discord' },
+];
+
+// ─── Fortune cookie (right sidebar) ───────────────────────────────────────────
+export const fortunes: string[] = [
+  'It works on your machine. Ship the machine.',
+  'A bug fixed at 2am is two bugs by 9am.',
+  'Your next commit message will be "fix". Again.',
+  'There are 10 kinds of people: those who get binary and those who don\'t.',
+  'The cache is always the problem. Unless it\'s DNS.',
+  'You will find the missing semicolon in the last place you look.',
+  'Today is a good day to delete code.',
+  'Weeks of coding can save you hours of planning.',
+  'A clean git history is a myth, like the Loch Ness monster.',
+  'Rubber duck debugging: the duck knows. The duck always knows.',
+  'You will soon rewrite this in a new framework. Resist.',
+  'Lucky numbers: 200, 201, 204. Unlucky: 500.',
+];
+
+// ─── Site stats (right sidebar) ───────────────────────────────────────────────
+export const site = {
+  onlineSince: '2026-03-28',
+  // Reset this when something breaks in production.
+  lastBug: '2026-09-24',
+};

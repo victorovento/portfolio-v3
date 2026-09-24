@@ -11,7 +11,33 @@ export const palette: Record<string, string> = {
   p: '#ff8a80', // pink
   y: '#ffd54f', // yellow
   b: '#6d4c41', // brown
+  P: '#b8d4e8', // trophy platinum
+  G: '#e6b422', // trophy gold
+  S: '#c0c0c0', // trophy silver
+  B: '#cd7f32', // trophy bronze
+  I: '#833ab4', // instagram purple
+  i: '#e1306c', // instagram pink
+  o: '#f77737', // instagram orange
+  x: '#2a2a2a', // x tile
+  F: '#1877f2', // facebook blue
+  O: '#ff4500', // reddit orange
+  D: '#5865f2', // discord blurple
 };
+
+// One trophy cup, recoloured per grade ('X' is swapped for the grade color).
+const trophy = (c: string) =>
+  [
+    'kkkkkkkkkkk',
+    'kkXXXwXXXkk',
+    'kXkXXwXXkXk',
+    'kXkXXXXXkXk',
+    '.kkXXXXXkk.',
+    '...kXXXk...',
+    '....kXk....',
+    '....kXk....',
+    '...kXXXk...',
+    '..kkkkkkk..',
+  ].map((row) => row.replaceAll('X', c));
 
 export type SpriteName = keyof typeof sprites;
 
@@ -170,5 +196,87 @@ export const sprites = {
     'kwwwwwwkkk',
     '.kwwwwk...',
     '..kkkk....',
+  ],
+  trophyPlatinum: trophy('P'),
+  trophyGold: trophy('G'),
+  trophySilver: trophy('S'),
+  trophyBronze: trophy('B'),
+  instagram: [
+    '.IIIIIIIII.',
+    'IIwwwwwwwII',
+    'IwIIIIIwIwI',
+    'IwIIwwwIIwI',
+    'iwiwiiiwiwi',
+    'iwiwiiiwiwi',
+    'iwiwiiiwiwi',
+    'owoowwwoowo',
+    'owooooooowo',
+    'oowwwwwwwoo',
+    '.ooooooooo.',
+  ],
+  xlogo: [
+    '.xxxxxxxxx.',
+    'xxxxxxxxxxx',
+    'xxwwxxxxwxx',
+    'xxxwwxxwxxx',
+    'xxxxwwwxxxx',
+    'xxxxxwwxxxx',
+    'xxxxwxwwxxx',
+    'xxxwxxxwwxx',
+    'xxwxxxxxwxx',
+    'xxxxxxxxxxx',
+    '.xxxxxxxxx.',
+  ],
+  facebook: [
+    '.FFFFFFFFF.',
+    'FFFFFFFFFFF',
+    'FFFFFFwwwFF',
+    'FFFFFwwFFFF',
+    'FFFFFwwFFFF',
+    'FFFwwwwwwFF',
+    'FFFFFwwFFFF',
+    'FFFFFwwFFFF',
+    'FFFFFwwFFFF',
+    'FFFFFwwFFFF',
+    '.FFFFwwFFF.',
+  ],
+  reddit: [
+    '.OOOOOOOOO.',
+    'OOOOOOOwwOO',
+    'OOOOOOwOOOO',
+    'OOOOOOwOOOO',
+    'OOOwwwwwOOO',
+    'OwwwwwwwwwO',
+    'OOwwOwOwwOO',
+    'OOwwwwwwwOO',
+    'OOOwwwwwOOO',
+    'OOOOOOOOOOO',
+    '.OOOOOOOOO.',
+  ],
+  discord: [
+    '.DDDDDDDDD.',
+    'DDDDDDDDDDD',
+    'DDDDDDDDDDD',
+    'DDDwwwwwDDD',
+    'DDwwwwwwwDD',
+    'DDwwDwDwwDD',
+    'DDwwwwwwwDD',
+    'DDwwwwwwwDD',
+    'DDwwDDDwwDD',
+    'DDDDDDDDDDD',
+    '.DDDDDDDDD.',
+  ],
+  cookie: [
+    '......w......',
+    '.....wwb.....',
+    '..bbbwbbbb...',
+    '.byyybwbyyyb.',
+    'byyyyykyyyyyb',
+    'byyyyykyyyyyb',
+    'byyyykkkyyyyb',
+    '.byyk...kyyb.',
+    '..bk.....kb..',
+    '...b.....b...',
+    '.............',
   ],
 } satisfies Record<string, string[]>;

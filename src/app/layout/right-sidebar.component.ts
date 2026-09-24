@@ -1,5 +1,8 @@
 import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
-import { updates } from '../config';
+import { TweetsComponent } from '../components/tweets.component';
+import { MoonComponent } from '../components/moon.component';
+import { FortuneComponent } from '../components/fortune.component';
+import { SiteStatsComponent } from '../components/site-stats.component';
 import { CounterService } from '../services/counter.service';
 
 export const buttons = [
@@ -14,6 +17,7 @@ export const buttons = [
 
 @Component({
   selector: 'app-right-sidebar',
+  imports: [TweetsComponent, MoonComponent, FortuneComponent, SiteStatsComponent],
   template: `
     <section class="box">
       <div class="box-title">local time</div>
@@ -23,14 +27,11 @@ export const buttons = [
       </div>
     </section>
 
-    <section class="box">
-      <div class="box-title">updates</div>
-      <ul class="box-body updates">
-        @for (u of updates; track $index) {
-          <li><time [attr.datetime]="u.date">{{ u.date }}</time> {{ u.text }}</li>
-        }
-      </ul>
-    </section>
+    <app-moon />
+
+    <app-tweets />
+
+    <app-fortune />
 
     <section class="box">
       <div class="box-title">visitors</div>
@@ -43,6 +44,8 @@ export const buttons = [
         <p class="note">you are visitor #{{ counter.hits() }}!</p>
       </div>
     </section>
+
+    <app-site-stats />
 
     <section class="box">
       <div class="box-title">buttons</div>
@@ -84,18 +87,6 @@ export const buttons = [
       font-size: 10px;
       color: var(--text-muted);
       margin-top: 4px;
-    }
-    .updates {
-      list-style: none;
-      font-size: 11px;
-      max-height: 220px;
-      overflow-y: auto;
-    }
-    .updates li { margin-bottom: 8px; }
-    .updates time {
-      display: block;
-      color: var(--red);
-      font-weight: bold;
     }
     .center { text-align: center; }
     .counter {
@@ -139,7 +130,6 @@ export const buttons = [
 })
 export class RightSidebarComponent {
   readonly counter = inject(CounterService);
-  readonly updates = updates;
   readonly buttons = buttons;
 
   readonly digits = computed(() => String(this.counter.hits()).padStart(6, '0').split(''));

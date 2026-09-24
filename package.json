@@ -5,7 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "steam": "node --env-file-if-exists=.env scripts/fetch-steam.mjs",
-    "prebuild": "npm run steam",
+    "psn": "node --env-file-if-exists=.env scripts/fetch-psn.mjs",
+    "spotify": "node --env-file-if-exists=.env scripts/fetch-spotify.mjs",
+    "spotify:auth": "node --env-file-if-exists=.env scripts/spotify-auth.mjs",
+    "tweets": "node --env-file-if-exists=.env scripts/fetch-tweets.mjs",
+    "github": "node scripts/fetch-github.mjs",
+    "prebuild": "node scripts/build-info.mjs && npm run steam && npm run psn && npm run spotify && npm run tweets && npm run github",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -28,6 +33,7 @@
     "@angular/cli": "^21.2.3",
     "@angular/compiler-cli": "^21.2.0",
     "prettier": "^3.8.1",
+    "psn-api": "^2.18.1",
     "typescript": "~5.9.2"
   }
 }

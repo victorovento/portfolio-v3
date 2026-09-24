@@ -1,0 +1,126 @@
+{
+  "fetchedAt": "2026-09-24T13:09:51.095Z",
+  "profile": {
+    "name": "Victor",
+    "image": "https://i.scdn.co/image/ab6775700000ee85b4d7ded8fe258ad11f112014",
+    "followers": 2,
+    "url": "https://open.spotify.com/user/21klncdwp4a453eocewluvnkq"
+  },
+  "top": {
+    "short_term": {
+      "label": "4 weeks",
+      "artists": [],
+      "tracks": []
+    },
+    "medium_term": {
+      "label": "6 months",
+      "artists": [],
+      "tracks": [
+        {
+          "name": "All These Things I Hate (Revolve Around Me)",
+          "artist": "Bullet For My Valentine",
+          "image": "https://i.scdn.co/image/ab67616d0000485154113df5ab7a69df8a44c37e",
+          "url": "https://open.spotify.com/track/6XimI1O15wpfwUdrCnlrxo"
+        },
+        {
+          "name": "Re-Education (Through Labor)",
+          "artist": "Rise Against",
+          "image": "https://i.scdn.co/image/ab67616d00004851eaa10fffa60de320846c28be",
+          "url": "https://open.spotify.com/track/6c1Bdvp208X0jbLmFnWbkC"
+        }
+      ]
+    },
+    "long_term": {
+      "label": "1 year",
+      "artists": [
+        {
+          "name": "Bullet For My Valentine",
+          "image": "https://i.scdn.co/image/ab6761610000f1782920e1ec5d3798d9be3b3f18",
+          "genres": [
+            "metalcore",
+            "metal"
+          ],
+          "url": "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
+        },
+        {
+          "name": "Nightwish",
+          "image": "https://i.scdn.co/image/ab6761610000f178f3284e60d4e43c9a7b52c08d",
+          "genres": [
+            "symphonic metal",
+            "gothic metal"
+          ],
+          "url": "https://open.spotify.com/artist/2NPduAUeLVsfIauhRwuft1"
+        },
+        {
+          "name": "DragonForce",
+          "image": "https://i.scdn.co/image/ab6761610000f178f410ec0f807cb377b006a23b",
+          "genres": [
+            "power metal",
+            "speed metal"
+          ],
+          "url": "https://open.spotify.com/artist/2pH3wEn4eYlMMIIQyKPbVR"
+        },
+        {
+          "name": "Mägo de Oz",
+          "image": "https://i.scdn.co/image/ab6761610000f178bba33fb29b7b06c34106b901",
+          "genres": [
+            "folk metal",
+            "rock en español"
+          ],
+          "url": "https://open.spotify.com/artist/5ZNxiPcbKgaNcBrERMpqeu"
+        },
+        {
+          "name": "Linkin Park",
+          "image": "https://i.scdn.co/image/ab6761610000f178527d95dabbe8b8b527e8136f",
+          "genres": [
+            "nu metal",
+            "rap metal"
+          ],
+          "url": "https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz"
+        }
+      ],
+      "tracks": [
+        {
+          "name": "Through the Fire and Flames",
+          "artist": "DragonForce",
+          "image": "https://i.scdn.co/image/ab67616d00004851cea77df9a1b71d4299ef4ea2",
+          "url": "https://open.spotify.com/track/6nnacTL5on2aVsRhVDNUSo"
+        },
+        {
+          "name": "Happen To Me (feat. Jonas Brothers)",
+          "artist": "Russell Dickerson, Jonas Brothers",
+          "image": "https://i.scdn.co/image/ab67616d000048513f5e614bf9c0ea98750ba881",
+          "url": "https://open.spotify.com/track/6XxFrC6s8An9ZZ52uAN4AV"
+        },
+        {
+          "name": "Your Betrayal",
+          "artist": "Bullet For My Valentine",
+          "image": "https://i.scdn.co/image/ab67616d00004851f467961e3089fd694c893584",
+          "url": "https://open.spotify.com/track/25GC50HslaaruyrKjdu0lP"
+        },
+        {
+          "name": "Tears Don't Fall",
+          "artist": "Bullet For My Valentine",
+          "image": "https://i.scdn.co/image/ab67616d000048516aec43f8c78d4e0a1ad8a8b5",
+          "url": "https://open.spotify.com/track/1kdiiFGX1Htx0aVZYaDwEJ"
+        },
+        {
+          "name": "A Draco Tale",
+          "artist": "DragonForce, Brawl Stars",
+          "image": "https://i.scdn.co/image/ab67616d00004851acdf1593476ed416eb6a3e5c",
+          "url": "https://open.spotify.com/track/0Tdu40S3ME29eOb9rDWooV"
+        }
+      ]
+    }
+  },
+  "recent": [
+    {
+      "name": "Carry on Wayward Son",
+      "artist": "Kansas",
+      "image": "https://i.scdn.co/image/ab67616d000048511be40e44db112e123e5e8b51",
+      "url": "https://open.spotify.com/track/4DMKwE2E2iYDKY01C335Uw",
+      "playedAt": "2026-09-24T13:04:42.494Z"
+    }
+  ],
+  "playlists": []
+}

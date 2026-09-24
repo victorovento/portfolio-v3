@@ -1,0 +1,201 @@
+{
+  "fetchedAt": "2026-09-24T12:40:07.970Z",
+  "profile": {
+    "onlineId": "victorvento",
+    "avatar": "http://psn-rsc.prod.dl.playstation.net/psn-rsc/avatar/UP9000/PPSA03671_00-WOLVERINEAVATAR3_6D4C39A27942B12E2C49_l.png",
+    "plus": true,
+    "aboutMe": "angolano",
+    "url": "https://psnprofiles.com/victorvento"
+  },
+  "trophies": {
+    "level": 110,
+    "progress": 0,
+    "tier": 2,
+    "grade": "bronze",
+    "counts": {
+      "bronze": 170,
+      "silver": 33,
+      "gold": 30,
+      "platinum": 2
+    },
+    "total": 235
+  },
+  "games": {
+    "count": 55,
+    "platinumed": 2,
+    "completed": 2
+  },
+  "recent": [
+    {
+      "name": "Marvel's Wolverine",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
+      "platform": "PS5",
+      "progress": 64,
+      "earned": {
+        "bronze": 21,
+        "silver": 6,
+        "gold": 2,
+        "platinum": 0
+      },
+      "defined": {
+        "bronze": 28,
+        "silver": 9,
+        "gold": 4,
+        "platinum": 1
+      },
+      "lastPlayed": "2026-09-23T22:53:52Z"
+    },
+    {
+      "name": "Assassin's Creed® III Remastered",
+      "icon": "https://image.api.playstation.com/trophy/np/NPWR15386_00_0064D75EBEAF65A7023B745B7AD7E2BA9558E1BDA4/4E0DB86EC39C09F26B69F290639B1A4A789AA053.PNG",
+      "platform": "PS4",
+      "progress": 0,
+      "earned": {
+        "bronze": 0,
+        "silver": 0,
+        "gold": 0,
+        "platinum": 0
+      },
+      "defined": {
+        "bronze": 46,
+        "silver": 7,
+        "gold": 1,
+        "platinum": 1
+      },
+      "lastPlayed": "2026-09-23T22:10:26Z"
+    },
+    {
+      "name": "Assassin's Creed® Liberation Remastered",
+      "icon": "https://image.api.playstation.com/trophy/np/NPWR16633_00_00A31AE68788AAB69A7FFED0B33EA1D4785CF4A065/D5DC222FB18539383BA022A52E993EB0CDF05920.PNG",
+      "platform": "PS4",
+      "progress": 0,
+      "earned": {
+        "bronze": 0,
+        "silver": 0,
+        "gold": 0,
+        "platinum": 0
+      },
+      "defined": {
+        "bronze": 8,
+        "silver": 18,
+        "gold": 4,
+        "platinum": 1
+      },
+      "lastPlayed": "2026-09-23T22:09:55Z"
+    },
+    {
+      "name": "EA SPORTS FC™ 27 Trophies",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57637_00/907aaaaf-1bd6-4d1e-b76f-1b9bb5c2fea6.png",
+      "platform": "PS5",
+      "progress": 4,
+      "earned": {
+        "bronze": 3,
+        "silver": 0,
+        "gold": 0,
+        "platinum": 0
+      },
+      "defined": {
+        "bronze": 34,
+        "silver": 9,
+        "gold": 3,
+        "platinum": 1
+      },
+      "lastPlayed": "2026-09-22T15:21:58Z"
+    },
+    {
+      "name": "FIFA 20",
+      "icon": "https://image.api.playstation.com/trophy/np/NPWR17768_00_00B936C5024B6DF2FF7C57F70325E7BB14DDDE7900/0BB2A91A7138173767E4734B7CA506F6CFC5C895.PNG",
+      "platform": "PS4",
+      "progress": 0,
+      "earned": {
+        "bronze": 0,
+        "silver": 0,
+        "gold": 0,
+        "platinum": 0
+      },
+      "defined": {
+        "bronze": 12,
+        "silver": 14,
+        "gold": 5,
+        "platinum": 1
+      },
+      "lastPlayed": "2026-09-22T14:44:53Z"
+    }
+  ],
+  "latestTrophies": [
+    {
+      "name": "Repressed Memories",
+      "detail": "Unlock the hidden memory in Nightmare Trials",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/71fcb4ef-cc97-4097-9896-db5b2c8f9c29.png",
+      "type": "gold",
+      "game": "Marvel's Wolverine",
+      "earnedAt": "2026-09-23T21:38:41Z",
+      "rate": 13.8
+    },
+    {
+      "name": "Pathways of the Mind",
+      "detail": "Discover all Nightmare Doors",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/9650cd2e-ed81-460b-9541-f9365071f73a.png",
+      "type": "silver",
+      "game": "Marvel's Wolverine",
+      "earnedAt": "2026-09-23T19:50:38Z",
+      "rate": 23.9
+    },
+    {
+      "name": "One More Story",
+      "detail": "Complete the Main Story",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/ffa1a580-9bae-4bb6-b59f-d121e54fd799.png",
+      "type": "gold",
+      "game": "Marvel's Wolverine",
+      "earnedAt": "2026-09-23T19:13:14Z",
+      "rate": 30
+    },
+    {
+      "name": "A Sinister End",
+      "detail": "Defeat Essex",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/ffb2f271-73e0-4b3c-b615-a82581c6a941.png",
+      "type": "silver",
+      "game": "Marvel's Wolverine",
+      "earnedAt": "2026-09-23T19:02:28Z",
+      "rate": 30.1
+    }
+  ],
+  "rarestTrophies": [
+    {
+      "name": "Somebody Call the Wambulance?",
+      "detail": "Complete Paramedic Mission level 12.",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR24057_00/e1398af0-f12b-4677-b79b-a49b22eaa94e.png",
+      "type": "gold",
+      "game": "Grand Theft Auto: Vice City – The Definitive Edition",
+      "earnedAt": "2026-09-13T21:24:52Z",
+      "rate": 2.8
+    },
+    {
+      "name": "Chopper’d Up",
+      "detail": "Kill all hostile NPCs during the mission \"Demolition Man\" using the RC chopper’s blades.",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR24057_00/c9f1480e-82bb-4ee7-8ddc-2166dc91578d.png",
+      "type": "gold",
+      "game": "Grand Theft Auto: Vice City – The Definitive Edition",
+      "earnedAt": "2026-09-13T21:49:35Z",
+      "rate": 3.1
+    },
+    {
+      "name": "Comeback King",
+      "detail": "Won after coming back from 3 goals down",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR24830_00/69b48060-5c50-4b02-a089-12f720922b78.png",
+      "type": "silver",
+      "game": "eFootball™",
+      "earnedAt": "2026-09-12T16:26:34Z",
+      "rate": 4.7
+    },
+    {
+      "name": "Iron-y",
+      "detail": "Kill the property developer with a Golf Club during \"Four Iron\".",
+      "icon": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR24057_00/99f75f1e-0e99-471f-b40f-cc5428bb6960.png",
+      "type": "silver",
+      "game": "Grand Theft Auto: Vice City – The Definitive Edition",
+      "earnedAt": "2026-09-13T21:39:57Z",
+      "rate": 9.2
+    }
+  ]
+}

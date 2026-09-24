@@ -159,30 +159,6 @@ interface SteamData {
       background: #1a0606;
       span { font-size: 6px; color: var(--pink); }
     }
-    .lcd {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-      gap: 6px;
-      margin: 14px 0 4px;
-    }
-    .lcd div {
-      background: #000;
-      border: 2px inset #444;
-      padding: 6px;
-      text-align: center;
-    }
-    .lcd dt {
-      font-size: 9px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    .lcd dd {
-      font-family: var(--pixel);
-      font-size: 13px;
-      color: #6f6;
-      text-shadow: 0 0 6px rgba(102, 255, 102, 0.5);
-      margin-top: 4px;
-    }
     h3 {
       margin-top: 14px;
       font-size: 20px;

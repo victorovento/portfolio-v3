@@ -3,10 +3,12 @@ import { RouterLink } from '@angular/router';
 import { personal } from '../config';
 import { PixelComponent } from '../pixel/pixel.component';
 import { SteamStatsComponent } from '../components/steam-stats.component';
+import { PsnStatsComponent } from '../components/psn-stats.component';
+import { SpotifyStatsComponent } from '../components/spotify-stats.component';
 
 @Component({
   selector: 'app-home-page',
-  imports: [RouterLink, PixelComponent, SteamStatsComponent],
+  imports: [RouterLink, PixelComponent, SteamStatsComponent, PsnStatsComponent, SpotifyStatsComponent],
   template: `
     <article class="box">
       <div class="box-title">welcome.txt <span class="controls"><span></span><span></span><span></span></span></div>
@@ -55,6 +57,10 @@ import { SteamStatsComponent } from '../components/steam-stats.component';
     </article>
 
     <app-steam-stats />
+
+    <app-psn-stats />
+
+    <app-spotify-stats />
 
     <div class="construction" aria-hidden="true">
       <span>⚠ this site is forever under construction ⚠</span>
